@@ -1,4 +1,5 @@
 // 这个方法解决不出来~~
+
 var findLadders = function(beginWord, endWord, wordList) {
   if (!wordList.includes(endWord)) return [];
   let mostLength = 0;
@@ -12,12 +13,12 @@ var findLadders = function(beginWord, endWord, wordList) {
   while (array.length) {
     let item = array.shift();
     if (item === endWord) {
-      let parantList = getParentList(item, object, beginWord);
+      let parentList = getParentList(item, object, beginWord);
       if (mostLength === 0) {
-        mostLength = parantList.length;
+        mostLength = parentList.length;
       }
-      if (parantList.length === mostLength) {
-        result.push(parantList);
+      if (parentList.length === mostLength) {
+        result.push(parentList);
       }
     } else if (mostLength === 0) {
       let array2 = findDifferenceOne(item, endWord, wordList, object);
