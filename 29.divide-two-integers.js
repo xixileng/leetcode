@@ -62,6 +62,11 @@ var divide = function (dividend, divisor) {
     dividend = dividend - divisor;
     result++;
   }
-  return result * (isMinus ? -1 : 1)
+  const max = 2 ** 31 - 1;
+  const min = -(2 ** 31);
+  if (isMinus) result = 0 - result;
+  if (result > max) return max;
+  else if (result < min) return min;
+  else return result;
 };
 
