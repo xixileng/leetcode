@@ -9,20 +9,14 @@
  * @return {number}
  */
 var myPow = function (x, n) {
-  if (n === 0) return 1;
-  let result = x;
-  n--;
-  if (n >= 1) {
-    while (n--) {
-      result *= x;
-    }
-  } else if (n < 0) {
-    n = -n;
-    while (n--) {
-      result *= x;
-    }
-    result = 1 / result;
-  }
-  return result;
+  const isPositive = n > 0
+  n = Math.abs(n)
+  const result = pow(x, n)
+  return isPositive ? result : 1 / result;
 };
 
+function pow (x, n) {
+  if (n === 0) return 1;
+
+  return n % 2 === 0 ? pow(x * x, n / 2) : x * pow(x * x, ~~(n / 2))
+}

@@ -55,12 +55,18 @@ var divide = function (dividend, divisor) {
     dividend = -dividend;
   }
   if (divisor < 0) {
-    isMinus = isMinus ? false : true;
+    isMinus = !isMinus;
     divisor = -divisor;
   }
   while (dividend >= divisor) {
-    dividend = dividend - divisor;
-    result++;
+    let sum = divisor
+    let multiple = 1
+    while (dividend > (sum + sum)) {
+      sum += sum
+      multiple += multiple
+    }
+    result += multiple
+    dividend = dividend - sum;
   }
   const max = 2 ** 31 - 1;
   const min = -(2 ** 31);
@@ -69,4 +75,3 @@ var divide = function (dividend, divisor) {
   else if (result < min) return min;
   else return result;
 };
-

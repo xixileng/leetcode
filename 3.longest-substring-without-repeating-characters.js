@@ -50,7 +50,17 @@
  * @param {string} s
  * @return {number}
  */
-var lengthOfLongestSubstring = function(s) {
-    
+var lengthOfLongestSubstring = function (s) {
+  let result = ''
+  let curr = ''
+  let index = -1
+  for (let i = 0; i < s.length; i++) {
+    index = curr.indexOf(s[i])
+    curr += s[i]
+    if (index > -1) {
+      curr = curr.slice(index + 1, i + 1)
+    }
+    result = curr.length > result.length ? curr : result
+  }
+  return result.length
 };
-
