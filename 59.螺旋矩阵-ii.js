@@ -85,8 +85,8 @@ var generateMatrix = function (n) {
     end -= 1;
   }
 
-  // 奇数的时候自己补中心
-  if (n % 2 === 1) {
+  // 奇数的时候中心都不会取，自己补最后一个
+  if (i === n ** 2) {
     const center = Math.floor(n / 2);
     result[center][center] = n ** 2;
   }

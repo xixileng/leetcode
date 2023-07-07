@@ -90,11 +90,10 @@ var spiralOrder = function (matrix) {
     right -= 1;
     bottom -= 1;
 
-    // 左闭右开，留下一个时手动补齐
+    // 左闭右开，当长度相等时且为奇数时，最后一个数以上条件都不满足，手动补齐
     if (num === 1) {
-      if (bottom === -1) bottom = 0;
-      if (right === -1) right = 0;
-      result.push(matrix[bottom][right]);
+      const center = Math.floor(matrix.length / 2);
+      result.push(matrix[center][center]);
       num--;
     }
   }
