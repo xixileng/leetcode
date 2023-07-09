@@ -81,6 +81,7 @@ var threeSum = function (nums) {
       return result;
     }
 
+    // 该组合已经用过了，不能再用
     if (index > 0 && nums[index] === nums[index - 1]) continue;
 
     let leftIndex = index + 1;
